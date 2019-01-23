@@ -1,7 +1,7 @@
 ## Med Rep
 
-ERPNext customization for Medical Rep managment
+ERPNext customization for Medical Rep management
 
 #### License
 
-MIT
+GPL-3.0

@@ -18,7 +18,7 @@ with open("med_rep/__init__.py", "rb") as f:
 setup(
     name="med_rep",
     version=version,
-    description="ERPNext customization for Medical Rep managment",
+    description="ERPNext customization for Medical Rep management",
     author="9t9it",
     author_email="info@9t9it.com",
     packages=find_packages(),

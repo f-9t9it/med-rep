@@ -7,11 +7,11 @@ app_name = "med_rep"
 app_version = __version__
 app_title = "Med Rep"
 app_publisher = "9t9it"
-app_description = "ERPNext customization for Medical Rep managment"
+app_description = "ERPNext customization for Medical Rep management"
 app_icon = "fa fa-medkit"
 app_color = "green"
 app_email = "info@9t9it.com"
-app_license = "MIT"
+app_license = "GPL-3.0"
 
 # Includes in <head>
 # ------------------
