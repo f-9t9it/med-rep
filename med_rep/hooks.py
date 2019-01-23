@@ -13,6 +13,25 @@ app_color = "green"
 app_email = "info@9t9it.com"
 app_license = "GPL-3.0"
 
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "name",
+                "in",
+                [
+                    "Lead-med_rep_sec",
+                    "Lead-speciality",
+                    "Lead-category",
+                    "Lead-med_rep_sec_cb",
+                    "Lead-notes",
+                ],
+            ]
+        ],
+    }
+]
+
 # Includes in <head>
 # ------------------
 
