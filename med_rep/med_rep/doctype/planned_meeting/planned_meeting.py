@@ -25,7 +25,6 @@ class PlannedMeeting(Document):
             """,
             values={"user": self.user, "start_time": start_time, "end_time": end_time},
             as_dict=1,
-            debug=1,
         )
         for lead in leads:
             self.append("leads", lead)

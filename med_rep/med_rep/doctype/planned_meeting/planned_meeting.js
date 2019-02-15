@@ -2,8 +2,16 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Planned Meeting', {
-  user: function(frm) {
+  user: async function(frm) {
     frm.trigger('set_leads_table');
+    if (frm.doc.user) {
+      const { message: doc } = await frappe.db.get_value(
+        'User',
+        frm.doc.user,
+        'full_name'
+      );
+      frm.set_value('user_name', doc.full_name);
+    }
   },
   start_datetime: function(frm) {
     frm.trigger('set_leads_table');
