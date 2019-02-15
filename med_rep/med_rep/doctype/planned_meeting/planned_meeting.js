@@ -2,6 +2,17 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Planned Meeting', {
+  refresh: function(frm) {
+    frm
+      .get_field('leads')
+      .grid.toggle_enable('result', frm.doc.status !== 'Completed');
+    if (frm.doc.status === 'Pending') {
+      frm.add_custom_button('Complete', async function() {
+        await frm.set_value('status', 'Completed');
+        frm.save('Update');
+      });
+    }
+  },
   user: async function(frm) {
     frm.trigger('set_leads_table');
     if (frm.doc.user) {

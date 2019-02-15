@@ -10,10 +10,24 @@ from frappe.model.document import Document
 
 
 class PlannedMeeting(Document):
+    def on_submit(self):
+        self.status = "Pending"
+
     def on_update_after_submit(self):
-        for lead in self.leads:
-            if not lead.result:
-                frappe.throw(_("Please set result in Lead table"))
+        if self.status == "Completed":
+            for lead in self.leads:
+                if not lead.result:
+                    frappe.throw(_("Please set result in Lead table"))
+        before = self.get_doc_before_save()
+        if before.status == "Completed":
+            frappe.throw(_("Cannot update Completed meetings"))
+
+    def before_cancel(self):
+        if self.status == "Completed":
+            frappe.throw(_("Cannot cancel Completed meetings"))
+
+    def on_cancel(self):
+        frappe.db.set(self, "status", "Cancelled")
 
     def set_leads(self):
         start_time = get_datetime(self.start_datetime)
