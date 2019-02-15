@@ -25,11 +25,10 @@ fixtures = [
                     "Lead-speciality",
                     "Lead-category",
                     "Lead-med_rep_sec_cb",
-                    "Lead-notes",
                 ],
             ]
         ],
-    }
+    },
 ]
 
 # Includes in <head>
