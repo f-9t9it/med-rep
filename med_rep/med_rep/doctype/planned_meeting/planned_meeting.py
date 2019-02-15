@@ -4,11 +4,17 @@
 
 from __future__ import unicode_literals
 import frappe
+from frappe import _
 from frappe.utils import get_datetime
 from frappe.model.document import Document
 
 
 class PlannedMeeting(Document):
+    def on_update_after_submit(self):
+        for lead in self.leads:
+            if not lead.result:
+                frappe.throw(_("Please set result in Lead table"))
+
     def set_leads(self):
         start_time = get_datetime(self.start_datetime)
         end_time = get_datetime(self.end_datetime)
